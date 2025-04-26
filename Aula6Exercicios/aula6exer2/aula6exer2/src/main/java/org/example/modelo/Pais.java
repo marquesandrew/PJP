@@ -1,11 +1,14 @@
 package org.example.modelo;
 
+
+
 public class Pais {
     private String nome;
-    private int dimensao;
+    private Double dimensao;
     private int populacao;
 
-    public Pais(String nome, int dimensao, int populacao) {
+
+    public Pais(String nome, Double dimensao, int populacao) {
         this.nome = nome;
         this.dimensao = dimensao;
         this.populacao = populacao;
@@ -15,7 +18,7 @@ public class Pais {
         return nome;
     }
 
-    public int getDimensao() {
+    public Double getDimensao() {
         return dimensao;
     }
 
