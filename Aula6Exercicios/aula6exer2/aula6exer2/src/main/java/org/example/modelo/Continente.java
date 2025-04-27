@@ -9,8 +9,13 @@ public class Continente {
     private String nome;
     private List<Pais> paises = new ArrayList<>();
 
+
     public Continente(String nome) {
         this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     public void addPaises(Pais pais){

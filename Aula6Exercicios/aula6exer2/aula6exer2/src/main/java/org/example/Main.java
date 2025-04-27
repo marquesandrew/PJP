@@ -3,13 +3,92 @@ package org.example;
 import org.example.modelo.Continente;
 import org.example.modelo.Pais;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Continente americaDoSul = new Continente("Americano");
+        List<Continente> continentes = new ArrayList<>();
+        List<Pais> paises = new ArrayList<>();
+
+        Scanner scanner = new Scanner(System.in);
+        int opcao=-1;
+
+        do {
+            System.out.println("====MENU====");
+            System.out.println("1.  Adicionar Continente.");
+            System.out.println("2.  Exibir Continentes.");
+            System.out.println("3.  Adicionar País.");
+            System.out.println("4.  Adicionar País ao Continente.");
+            System.out.println("5.  Dimensão total do Continente.");
+            System.out.println("6.  População total do Continente.");
+            System.out.println("7.  Densidade populacional do Continente ");
+            System.out.println("8.  País com maior população do Continente");
+            System.out.println("9.  País com menor população do Continente");
+            System.out.println("10.  País com maior dimensão do Continente");
+            System.out.println("11.  País com menor dimensão do Continente");
+            System.out.println("12.  Razão territorial do maior país em relação ao menor país do Continente.");
+            System.out.println("0.  Sair do programa.");
+
+            opcao = scanner.nextInt();
+            scanner.nextLine();
+            switch (opcao) {
+                case 1:
+                    System.out.println("Quantos continentes você deseja adicionar: ");
+                    int quantidadeContinente = scanner.nextInt();
+                    scanner.nextLine();
+                    for (int i = 0; i < quantidadeContinente; i++) {
+                        System.out.println("Digite o nome do continente que deseja adicionar: ");
+                        String nomeContinenteAdicionar = scanner.nextLine();
+                        continentes.add(new Continente(nomeContinenteAdicionar));
+                    }
+                    System.out.println();
+
+                case 2:
+                    System.out.println("Exibindo todos os continentes cadastrados: ");
+                    for (Continente continente : continentes) {
+                        System.out.println(continente.getNome());
+                    }
+                    System.out.println();
+
+                case 3:
+                    System.out.println("Quantos países você deseja adicionar: ");
+                    int quantidadePais = scanner.nextInt();
+                    scanner.nextLine();
+                    for (int i =0; i< quantidadePais; i++){
+                        System.out.println("Digite o nome do país: ");
+                        String nomePaisAdicionar = scanner.nextLine();
+
+                        System.out.println("Digite a dimensão do país: ");
+                        double dimensaoPaisAdicionar = scanner.nextDouble();
+                        scanner.nextLine();
+
+                        System.out.println("Digite a população do país: ");
+                        int populacaoPaisAdicionar = scanner.nextInt();
+                        scanner.nextLine();
+
+                        paises.add(new Pais(nomePaisAdicionar,dimensaoPaisAdicionar,populacaoPaisAdicionar));
+                    }
+                    System.out.println();
+
+                case 4:
+                    
+
+                case 0:
+                    System.out.println("Saindo do programa...");
+                    System.out.println();
+                    System.out.println();
+                    break;
+
+                default:
+                    System.out.println("Opção inválida, tente novamente.");
+            }
+        } while (opcao != 0);
+        scanner.close();
+
+
+        /*Continente americaDoSul = new Continente("Americano");
 
         Pais brasil = new Pais("Brasil", 8515770.0, 212600000);
         Pais argentina = new Pais("Argentina", 2780400.0, 45851378);
@@ -38,6 +117,6 @@ public class Main {
         americaDoSul.addPaises(suriname);
         americaDoSul.showPaises();
         americaDoSul.getDimensaoTotalContinente();
-        americaDoSul.getPopulacaoTotalContinente();
+        americaDoSul.getPopulacaoTotalContinente();*/
     }
 }
