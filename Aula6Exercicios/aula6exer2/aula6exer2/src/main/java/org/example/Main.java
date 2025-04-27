@@ -13,28 +13,31 @@ public class Main {
         List<Pais> paises = new ArrayList<>();
 
         Scanner scanner = new Scanner(System.in);
-        int opcao=-1;
+        int opcao;
 
         do {
             System.out.println("====MENU====");
             System.out.println("1.  Adicionar Continente.");
             System.out.println("2.  Exibir Continentes.");
             System.out.println("3.  Adicionar País.");
-            System.out.println("4.  Adicionar País ao Continente.");
-            System.out.println("5.  Dimensão total do Continente.");
-            System.out.println("6.  População total do Continente.");
-            System.out.println("7.  Densidade populacional do Continente ");
-            System.out.println("8.  País com maior população do Continente");
-            System.out.println("9.  País com menor população do Continente");
-            System.out.println("10.  País com maior dimensão do Continente");
-            System.out.println("11.  País com menor dimensão do Continente");
-            System.out.println("12.  Razão territorial do maior país em relação ao menor país do Continente.");
+            System.out.println("4.  Exibir Países.");
+            System.out.println("5.  Exibir Continentes e seus respectivos países.");
+            System.out.println("6.  Adicionar País ao Continente.");
+            System.out.println("7.  Dimensão total do Continente.");
+            System.out.println("8.  População total do Continente.");
+            System.out.println("9.  Densidade populacional do Continente ");
+            System.out.println("10.  País com maior população do Continente");
+            System.out.println("11.  País com menor população do Continente");
+            System.out.println("12.  País com maior dimensão do Continente");
+            System.out.println("13.  País com menor dimensão do Continente");
+            System.out.println("14.  Razão territorial do maior país em relação ao menor país do Continente.");
             System.out.println("0.  Sair do programa.");
 
             opcao = scanner.nextInt();
             scanner.nextLine();
             switch (opcao) {
                 case 1:
+                    System.out.println("1.  Adicionar Continente.");
                     System.out.println("Quantos continentes você deseja adicionar: ");
                     int quantidadeContinente = scanner.nextInt();
                     scanner.nextLine();
@@ -44,19 +47,21 @@ public class Main {
                         continentes.add(new Continente(nomeContinenteAdicionar));
                     }
                     System.out.println();
-
+                    break;
                 case 2:
+                    System.out.println("2.  Exibir Continente.");
                     System.out.println("Exibindo todos os continentes cadastrados: ");
                     for (Continente continente : continentes) {
                         System.out.println(continente.getNome());
                     }
                     System.out.println();
-
+                    break;
                 case 3:
+                    System.out.println("3.  Adicionar País.");
                     System.out.println("Quantos países você deseja adicionar: ");
                     int quantidadePais = scanner.nextInt();
                     scanner.nextLine();
-                    for (int i =0; i< quantidadePais; i++){
+                    for (int i = 0; i < quantidadePais; i++){
                         System.out.println("Digite o nome do país: ");
                         String nomePaisAdicionar = scanner.nextLine();
 
@@ -71,10 +76,56 @@ public class Main {
                         paises.add(new Pais(nomePaisAdicionar,dimensaoPaisAdicionar,populacaoPaisAdicionar));
                     }
                     System.out.println();
-
+                    break;
                 case 4:
+                    System.out.println("4.  Exibindo países:");
+                    for (Pais pais: paises){
+                        System.out.println("País: " + pais.getNome());
+                        System.out.println("Dimensão: " + pais.getDimensao());
+                        System.out.println("População: " + pais.getPopulacao());
+                        System.out.println();
+                    }
+                    break;
+                case 5:
+                    System.out.println("5.  Exibindo Continentes e seus respectivos países.");
+                    for (Continente continente: continentes){
+                        continente.showPaises();
+                    }
+                    break;
+                case 6:
+                    System.out.println("6.  Adicionar País ao Continente.");
+                    System.out.println("Digite o nome do Continente ao qual deseja adicionar países: ");
+                    String continenteDigitado = scanner.nextLine();
 
+                    Continente continenteAlvo = null;
+                    Pais paisAlvo = null;
 
+                    boolean continenteEncontrado=false;
+                    boolean paisEncontrado=false;
+                    for (Continente continente: continentes){
+                        if(continente.getNome().equalsIgnoreCase(continenteDigitado)){
+                            continenteAlvo = continente;
+                            continenteEncontrado=true;
+                        }
+                    }
+                    if(continenteEncontrado){
+                        System.out.println("Digite o nome do País que deseja adicionar: ");
+                        String nomePaisAddContinente = scanner.nextLine();
+                        for(Pais pais: paises) {
+                            if (pais.getNome().equalsIgnoreCase(nomePaisAddContinente)) {
+                                paisAlvo = pais;
+                                paisEncontrado = true;
+                            }
+                        }
+                        if (paisEncontrado){
+                            continenteAlvo.addPaises(paisAlvo);
+                        } else {
+                            System.out.println("O país informado não foi encontrado.");
+                        }
+                    } else {
+                        System.out.println("O continente informado não foi encontrado.");
+                    }
+                    break;
                 case 0:
                     System.out.println("Saindo do programa...");
                     System.out.println();
