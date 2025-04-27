@@ -73,7 +73,7 @@ public class Main {
                     System.out.println();
 
                 case 4:
-                    
+
 
                 case 0:
                     System.out.println("Saindo do programa...");
