@@ -13,7 +13,7 @@ public class Cliente {
         this.email = email;
     }
 
-    public getDadosCliente(){
+    public void getDadosCliente(){
         System.out.println("Cliente: " + this.nome);
         System.out.println("Cpf: " + this.cpf);
         System.out.println("Telefone: " + this.telefone);
