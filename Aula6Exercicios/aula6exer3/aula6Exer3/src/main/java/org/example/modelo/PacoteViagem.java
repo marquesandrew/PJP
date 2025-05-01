@@ -16,8 +16,11 @@ public abstract class PacoteViagem {
         this.atividades = atividades;
     }
 
+    public String getDestino() {
+        return destino;
+    }
+
     public void getDetalhesPacote(){
-        System.out.println("Pacote de Viagem:");
         System.out.println("Destino: " + this.destino + " - Duração: " + this.duracao + " dia(s) - Valor: " + this.preco);
         System.out.println("Atividades durante a viagem: " + this.atividades);
     }

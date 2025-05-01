@@ -18,11 +18,17 @@ public class Cliente {
         this.pacotesAdiquiridos = new ArrayList<>();
     }
 
+    public String getNome() {
+        return nome;
+    }
+
     public void getDadosCliente(){
+        System.out.println();
         System.out.println("Cliente: " + this.nome);
         System.out.println("Cpf: " + this.cpf);
         System.out.println("Telefone: " + this.telefone);
         System.out.println("E-mail: " + this.email);
+        System.out.println();
     }
 
     public void adicionarPacotes(PacoteViagem pacote){
@@ -34,5 +40,6 @@ public class Cliente {
         for (PacoteViagem pacoteViagem: pacotesAdiquiridos){
             pacoteViagem.getDetalhesPacote();
         }
+        System.out.println();
     }
 }
