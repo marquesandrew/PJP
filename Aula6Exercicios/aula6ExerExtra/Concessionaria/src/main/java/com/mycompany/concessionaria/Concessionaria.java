@@ -5,6 +5,7 @@
 package com.mycompany.concessionaria;
 
 import javax.swing.JOptionPane;
+import view.Login;
 
 /**
  *
@@ -13,6 +14,6 @@ import javax.swing.JOptionPane;
 public class Concessionaria {
 
     public static void main(String[] args) {
-        
+        new Login().setVisible(true);
     }
 }
