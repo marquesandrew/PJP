@@ -20,6 +20,7 @@ public class EquipamentoOpcional extends Equipamento {
         this.disponivelEstoque = disponivelEstoque;
     }
 
+    @Override
     public BigDecimal getPreco() {
         return preco;
     }
