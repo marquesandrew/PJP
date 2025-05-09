@@ -145,7 +145,6 @@ public class Login extends javax.swing.JFrame {
         String login = jTextField_Login.getText();
         String senha = jPasswordField_Senha.getText();
         if(login.equals("usuario") && senha.equals("123")){
-            JOptionPane.showMessageDialog(rootPane, "Bem vindo!");
             dispose();
             new Principal().setVisible(true);
         }else{

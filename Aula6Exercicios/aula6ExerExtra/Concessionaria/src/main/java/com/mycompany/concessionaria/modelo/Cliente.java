@@ -4,6 +4,7 @@
  */
 package com.mycompany.concessionaria.modelo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,21 +17,27 @@ public class Cliente {
     private String cpf;
     private String telefone;
     private String email;
+    private LocalDate nascimento;
+    private String sexo;
     List<Venda> compras;
 
-    public Cliente(String nome, String cpf, String telefone, String email, List<Venda> compras) {
+    public Cliente(String nome, String cpf, String telefone, String email, LocalDate nascimento, String sexo,List<Venda> compras) {
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
         this.email = email;
+        this.nascimento = nascimento;
+        this.sexo = sexo;
         this.compras = new ArrayList<>();
     }
     
-    public Cliente(String nome, String cpf, String telefone, String email) {
+    public Cliente(String nome, String cpf, String telefone, String email, LocalDate nascimento, String sexo) {
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
         this.email = email;
+        this.nascimento = nascimento;
+        this.sexo = sexo;
     }
 
     public String getNome() {
