@@ -4,6 +4,9 @@
  */
 package view;
 
+import java.awt.Desktop;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -29,22 +32,17 @@ public class Principal extends javax.swing.JFrame {
         jDesktopPane_Principal = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenu_Arquivo = new javax.swing.JMenu();
+        jMenuItemSair = new javax.swing.JMenuItem();
+        jMenuCadastros = new javax.swing.JMenu();
+        jMenuItem_CadastroCliente = new javax.swing.JMenuItem();
+        jMenuItemCadastroVeiculo = new javax.swing.JMenuItem();
+        jMenuItemCadastroUsuario = new javax.swing.JMenuItem();
+        jMenu_Vendas = new javax.swing.JMenu();
+        jMenuItem_VenderVeiculo = new javax.swing.JMenuItem();
+        jMenu6_Relatorios = new javax.swing.JMenu();
+        jMenuSobre = new javax.swing.JMenu();
+        jMenuItemSistema = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestão Concessionária");
@@ -68,87 +66,75 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jDesktopPane_PrincipalLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(jLabel1)
-                .addContainerGap(597, Short.MAX_VALUE))
+                .addContainerGap(598, Short.MAX_VALUE))
         );
 
-        jMenu1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\application.png")); // NOI18N
-        jMenu1.setText("Arquivo");
+        jMenu_Arquivo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\application.png")); // NOI18N
+        jMenu_Arquivo.setText("Arquivo");
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\door_out.png")); // NOI18N
-        jMenuItem1.setText("Sair");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemSair.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\door_out.png")); // NOI18N
+        jMenuItemSair.setText("Sair");
+        jMenuItemSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jMenuItemSairActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu_Arquivo.add(jMenuItemSair);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jMenu_Arquivo);
 
-        jMenu3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\user.png")); // NOI18N
-        jMenu3.setText("Clientes");
+        jMenuCadastros.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\car.png")); // NOI18N
+        jMenuCadastros.setText("Cadastros");
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\user_add.png")); // NOI18N
-        jMenuItem2.setText("Cadastrar");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem_CadastroCliente.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\user.png")); // NOI18N
+        jMenuItem_CadastroCliente.setText("Clientes");
+        jMenuItem_CadastroCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jMenuItem_CadastroClienteActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem2);
+        jMenuCadastros.add(jMenuItem_CadastroCliente);
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\user_edit.png")); // NOI18N
-        jMenuItem3.setText("Alterar");
-        jMenu3.add(jMenuItem3);
+        jMenuItemCadastroVeiculo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\car.png")); // NOI18N
+        jMenuItemCadastroVeiculo.setText("Veículos");
+        jMenuItemCadastroVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroVeiculoActionPerformed(evt);
+            }
+        });
+        jMenuCadastros.add(jMenuItemCadastroVeiculo);
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\user_delete.png")); // NOI18N
-        jMenuItem4.setText("Excluir");
-        jMenu3.add(jMenuItem4);
+        jMenuItemCadastroUsuario.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\user_add.png")); // NOI18N
+        jMenuItemCadastroUsuario.setText("Usuários");
+        jMenuItemCadastroUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroUsuarioActionPerformed(evt);
+            }
+        });
+        jMenuCadastros.add(jMenuItemCadastroUsuario);
 
-        jMenuItem5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\magnifier.png")); // NOI18N
-        jMenuItem5.setText("Pesquisar");
-        jMenu3.add(jMenuItem5);
+        jMenuBar1.add(jMenuCadastros);
 
-        jMenuBar1.add(jMenu3);
+        jMenu_Vendas.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\basket.png")); // NOI18N
+        jMenu_Vendas.setText("Vendas");
 
-        jMenu5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\car.png")); // NOI18N
-        jMenu5.setText("Veiculos");
+        jMenuItem_VenderVeiculo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\basket_add.png")); // NOI18N
+        jMenuItem_VenderVeiculo.setText("Vender Veiculo");
+        jMenu_Vendas.add(jMenuItem_VenderVeiculo);
 
-        jMenuItem6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\car_add.png")); // NOI18N
-        jMenuItem6.setText("Cadastrar");
-        jMenu5.add(jMenuItem6);
+        jMenuBar1.add(jMenu_Vendas);
 
-        jMenuItem7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\car.png")); // NOI18N
-        jMenuItem7.setText("Alterar");
-        jMenu5.add(jMenuItem7);
+        jMenu6_Relatorios.setText("Relatórios");
+        jMenuBar1.add(jMenu6_Relatorios);
 
-        jMenuItem8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\car_delete.png")); // NOI18N
-        jMenuItem8.setText("Excluir");
-        jMenu5.add(jMenuItem8);
+        jMenuSobre.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\information.png")); // NOI18N
+        jMenuSobre.setText("Sobre");
 
-        jMenuItem9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\magnifier.png")); // NOI18N
-        jMenuItem9.setText("Pesquisar");
-        jMenu5.add(jMenuItem9);
+        jMenuItemSistema.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\server_chart.png")); // NOI18N
+        jMenuItemSistema.setText("Sistema");
+        jMenuSobre.add(jMenuItemSistema);
 
-        jMenuBar1.add(jMenu5);
-
-        jMenu4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\basket.png")); // NOI18N
-        jMenu4.setText("Vender");
-
-        jMenuItem10.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\basket_add.png")); // NOI18N
-        jMenuItem10.setText("Vender Veiculo");
-        jMenu4.add(jMenuItem10);
-
-        jMenuBar1.add(jMenu4);
-
-        jMenu2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\information.png")); // NOI18N
-        jMenu2.setText("Sobre");
-
-        jMenuItem11.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\user_green.png")); // NOI18N
-        jMenuItem11.setText("Usuarios");
-        jMenu2.add(jMenuItem11);
-
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMenuSobre);
 
         setJMenuBar(jMenuBar1);
 
@@ -173,15 +159,23 @@ public class Principal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_jMenuItemSairActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        CadastroCliente telaCadastroCliente = new CadastroCliente();
-        jDesktopPane_Principal.add(telaCadastroCliente);
-        telaCadastroCliente.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    private void jMenuItem_CadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_CadastroClienteActionPerformed
+        CadastroCliente cadastro = new CadastroCliente();
+        jDesktopPane_Principal.add(cadastro);
+        cadastro.setVisible(true);
+    }//GEN-LAST:event_jMenuItem_CadastroClienteActionPerformed
+
+    private void jMenuItemCadastroVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroVeiculoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemCadastroVeiculoActionPerformed
+
+    private void jMenuItemCadastroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemCadastroUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,22 +215,17 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane_Principal;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6_Relatorios;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenu jMenuCadastros;
+    private javax.swing.JMenuItem jMenuItemCadastroUsuario;
+    private javax.swing.JMenuItem jMenuItemCadastroVeiculo;
+    private javax.swing.JMenuItem jMenuItemSair;
+    private javax.swing.JMenuItem jMenuItemSistema;
+    private javax.swing.JMenuItem jMenuItem_CadastroCliente;
+    private javax.swing.JMenuItem jMenuItem_VenderVeiculo;
+    private javax.swing.JMenu jMenuSobre;
+    private javax.swing.JMenu jMenu_Arquivo;
+    private javax.swing.JMenu jMenu_Vendas;
     // End of variables declaration//GEN-END:variables
 }

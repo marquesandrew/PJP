@@ -5,6 +5,9 @@
 package view;
 
 import com.mycompany.concessionaria.modelo.Cliente;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -52,7 +55,8 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
         jTextField_Cliente_Email = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_Cliente = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jButton_Excluir = new javax.swing.JButton();
+        jButton_ClienteConsultar = new javax.swing.JButton();
 
         setTitle("Cadastro de Clientes");
 
@@ -194,10 +198,17 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable_Cliente);
 
-        jButton1.setText("Excluir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Excluir.setText("Excluir");
+        jButton_Excluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton_ExcluirActionPerformed(evt);
+            }
+        });
+
+        jButton_ClienteConsultar.setText("Consultar");
+        jButton_ClienteConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_ClienteConsultarActionPerformed(evt);
             }
         });
 
@@ -215,18 +226,21 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(237, 237, 237)
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton_Cancelar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton_Salvar)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(283, 283, 283)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(190, 190, 190)
+                                .addComponent(jButton_Cancelar)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton_ClienteConsultar)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton_Excluir)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton_Salvar)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(283, 283, 283)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,7 +257,8 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_Salvar)
                     .addComponent(jButton_Cancelar)
-                    .addComponent(jButton1))
+                    .addComponent(jButton_Excluir)
+                    .addComponent(jButton_ClienteConsultar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -269,7 +284,14 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
         } catch (DateTimeException e){
             JOptionPane.showMessageDialog(rootPane, "Data Inválida: " + clienteNascimentoDataString);
         }
+        
         Cliente cliente = new Cliente(client_nome, cliente_cpf, cliente_telefone, cliente_email, cliente_nascimento, cliente_sexo);
+        
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("cliente.dat"))) {
+            oos.writeObject(cliente);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
 
         jTextField_Cliente_Nome.setText("");
         jFormattedTextField_Cliente_Cpf.setText("");
@@ -283,7 +305,7 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
         dtmTabelaCadastroCliente.addRow(dadosTabelaCliente);
     }//GEN-LAST:event_jButton_SalvarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ExcluirActionPerformed
         
         if (jTable_Cliente.getSelectedRow() != -1){
             DefaultTableModel dtmTabelaCadastroCliente = (DefaultTableModel) jTable_Cliente.getModel();
@@ -291,12 +313,17 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
         }else{
             JOptionPane.showMessageDialog(rootPane, "Para exclusão é necessário selecinoar um registro!");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton_ExcluirActionPerformed
+
+    private void jButton_ClienteConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ClienteConsultarActionPerformed
+
+    }//GEN-LAST:event_jButton_ClienteConsultarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton_Cancelar;
+    private javax.swing.JButton jButton_ClienteConsultar;
+    private javax.swing.JButton jButton_Excluir;
     private javax.swing.JButton jButton_Salvar;
     private javax.swing.JComboBox<String> jComboBoxClienteSexo;
     private javax.swing.JFormattedTextField jFormattedTextField_Cliente_Cpf;

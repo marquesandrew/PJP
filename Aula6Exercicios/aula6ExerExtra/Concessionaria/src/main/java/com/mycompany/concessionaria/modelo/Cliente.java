@@ -4,6 +4,7 @@
  */
 package com.mycompany.concessionaria.modelo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +57,14 @@ public class Cliente {
         return email;
     }
 
+    public LocalDate getNascimento() {
+        return nascimento;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+        
     public List<Venda> getCompras() {
         return compras;
     }
