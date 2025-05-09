@@ -4,9 +4,14 @@
  */
 package view;
 
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -141,10 +146,31 @@ public class Login extends javax.swing.JFrame {
     
     
     private void jButton_AcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AcessarActionPerformed
-        // TODO add your handling code here:
-        String login = jTextField_Login.getText();
-        String senha = jPasswordField_Senha.getText();
-        if(login.equals("usuario") && senha.equals("123")){
+        String loginDigitado = jTextField_Login.getText();
+        String senhaDigitada = jPasswordField_Senha.getText();
+        boolean loginValido=false;
+        
+        Path path = Path.of("usuario.txt");
+        try {
+            List<String> linhas = Files.readAllLines(path);
+            for (String linha : linhas) {
+                String[] dados = linha.split(",");
+
+                if (dados.length >= 1) {
+                    String login = dados[0];
+                    String senha = dados[1];
+                    if(login.equals(loginDigitado) && senhaDigitada.equals(senhaDigitada)){
+                        loginValido=true;
+                    }
+                } else {
+                    System.out.println("Linha com dados incompletos: " + linha);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao ler o arquivo: " + e.getMessage());
+        }
+        
+        if(loginValido){
             dispose();
             new Principal().setVisible(true);
         }else{
