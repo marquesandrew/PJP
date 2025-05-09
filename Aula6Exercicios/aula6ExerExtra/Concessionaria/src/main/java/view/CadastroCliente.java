@@ -5,12 +5,20 @@
 package view;
 
 import com.mycompany.concessionaria.modelo.Cliente;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -287,10 +295,20 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
         
         Cliente cliente = new Cliente(client_nome, cliente_cpf, cliente_telefone, cliente_email, cliente_nascimento, cliente_sexo);
         
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("cliente.dat"))) {
-            oos.writeObject(cliente);
-        }catch(IOException e){
-            e.printStackTrace();
+        Path path = Path.of("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\cliente.txt");
+        
+        try {
+            
+            if (Files.notExists(path)){
+                Files.createFile(path);
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(rootPane, "Houve algum problema para criar o arquivo.");
+        }
+        try {
+            Files.writeString(path, client_nome + "," + cliente_cpf + "," + cliente_telefone + "," + cliente_email + "," + clienteNascimentoDataString + "," + cliente_sexo+"\n",StandardOpenOption.APPEND);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(rootPane, "Ocorreu algum problema para gravar os dados.");
         }
 
         jTextField_Cliente_Nome.setText("");
@@ -316,7 +334,32 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton_ExcluirActionPerformed
 
     private void jButton_ClienteConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ClienteConsultarActionPerformed
+        Path path = Path.of("cliente.txt");
 
+        try {
+            List<String> linhas = Files.readAllLines(path);
+            DefaultTableModel dtmTabelaCadastroCliente = (DefaultTableModel) jTable_Cliente.getModel();
+            for (String linha : linhas) {
+                String[] dados = linha.split(",");
+
+                if (dados.length >= 6) {
+                    String nome = dados[0];
+                    String cpf = dados[1];
+                    String telefone = dados[2];
+                    String email = dados[3];
+                    String nascimento = dados[4];
+                    String sexo = dados[5];
+                    
+                    Object [] dadosTabelaCliente = {nome,cpf,telefone,email,nascimento,sexo};
+                    dtmTabelaCadastroCliente.addRow(dadosTabelaCliente);
+                    
+                } else {
+                    System.out.println("Linha com dados incompletos: " + linha);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao ler o arquivo: " + e.getMessage());
+        }
     }//GEN-LAST:event_jButton_ClienteConsultarActionPerformed
 
 

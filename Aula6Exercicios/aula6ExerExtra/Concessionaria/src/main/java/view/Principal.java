@@ -4,8 +4,7 @@
  */
 package view;
 
-import java.awt.Desktop;
-import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -166,7 +165,7 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem_CadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_CadastroClienteActionPerformed
         CadastroCliente cadastro = new CadastroCliente();
         jDesktopPane_Principal.add(cadastro);
-        cadastro.setVisible(true);
+        cadastro.setVisible(true);    
     }//GEN-LAST:event_jMenuItem_CadastroClienteActionPerformed
 
     private void jMenuItemCadastroVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroVeiculoActionPerformed
