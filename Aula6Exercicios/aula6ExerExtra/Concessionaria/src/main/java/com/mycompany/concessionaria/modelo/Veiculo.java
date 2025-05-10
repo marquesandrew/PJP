@@ -6,6 +6,7 @@ package com.mycompany.concessionaria.modelo;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.Year;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ import java.util.List;
 public class Veiculo {
     private String marca;
     private String modelo;
-    private LocalDate anoFabricacao;
+    private Year anoFabricacao;
     private int km;
     private BigDecimal preco;
     private String chassi;
@@ -24,7 +25,17 @@ public class Veiculo {
     private List<EquipamentoOpcional> equipamentosOpcional;
         
 
-    public Veiculo(String marca, String modelo, LocalDate anoFabricacao, int km, BigDecimal preco, String chassi, boolean disponivel, List<EquipamentoDeSerie> equipamentosDeSerie, List<EquipamentoOpcional> equipamentosOpcional) {
+     public Veiculo(String marca, String modelo, Year anoFabricacao, int km, BigDecimal preco, String chassi, boolean disponivel) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.anoFabricacao = anoFabricacao;
+        this.km = km;
+        this.preco = preco;
+        this.chassi = chassi;
+        this.disponivel = disponivel;
+    }
+    
+    public Veiculo(String marca, String modelo, Year anoFabricacao, int km, BigDecimal preco, String chassi, boolean disponivel, List<EquipamentoDeSerie> equipamentosDeSerie, List<EquipamentoOpcional> equipamentosOpcional) {
         this.marca = marca;
         this.modelo = modelo;
         this.anoFabricacao = anoFabricacao;
@@ -44,7 +55,7 @@ public class Veiculo {
         return modelo;
     }
 
-    public LocalDate getAnoFabricacao() {
+    public Year getAnoFabricacao() {
         return anoFabricacao;
     }
 

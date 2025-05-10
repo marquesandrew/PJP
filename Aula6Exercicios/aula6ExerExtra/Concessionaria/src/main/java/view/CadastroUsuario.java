@@ -8,7 +8,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -38,8 +40,13 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextField_UsuarioLogin = new javax.swing.JTextField();
         jTextField_UsuarioSenha = new javax.swing.JTextField();
-        jButton_Salvar = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableUsuario = new javax.swing.JTable();
         jButton_Cancelar = new javax.swing.JButton();
+        jButton_Salvar = new javax.swing.JButton();
+        jButtonUsuarioConsultar = new javax.swing.JButton();
+        jButtonUsuarioExcluir = new javax.swing.JButton();
 
         setTitle("Cadastro de Usuários");
 
@@ -50,6 +57,39 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Senha: ");
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Usuários"));
+
+        jTableUsuario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {},
+            new String [] {
+                "Login", "Senha"
+            }
+        ));
+        jScrollPane1.setViewportView(jTableUsuario);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jButton_Cancelar.setText("Cancelar");
+        jButton_Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_CancelarActionPerformed(evt);
+            }
+        });
+
         jButton_Salvar.setText("Salvar");
         jButton_Salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,10 +97,17 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton_Cancelar.setText("Cancelar");
-        jButton_Cancelar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonUsuarioConsultar.setText("Consultar");
+        jButtonUsuarioConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_CancelarActionPerformed(evt);
+                jButtonUsuarioConsultarActionPerformed(evt);
+            }
+        });
+
+        jButtonUsuarioExcluir.setText("Excluir");
+        jButtonUsuarioExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUsuarioExcluirActionPerformed(evt);
             }
         });
 
@@ -71,30 +118,38 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
+                        .addGap(25, 25, 25)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
                         .addGap(61, 61, 61)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton_Cancelar)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton_Salvar))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField_UsuarioLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
-                                .addComponent(jTextField_UsuarioSenha)))))
-                .addContainerGap(34, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField_UsuarioLogin)
+                            .addComponent(jTextField_UsuarioSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(jLabel1)))
+                .addContainerGap(8, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton_Cancelar)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonUsuarioExcluir)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonUsuarioConsultar)
+                .addGap(18, 18, 18)
+                .addComponent(jButton_Salvar)
+                .addGap(35, 35, 35))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel1)
-                .addGap(34, 34, 34)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextField_UsuarioLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -102,11 +157,15 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jTextField_UsuarioSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_Cancelar)
                     .addComponent(jButton_Salvar)
-                    .addComponent(jButton_Cancelar))
-                .addContainerGap(62, Short.MAX_VALUE))
+                    .addComponent(jButtonUsuarioConsultar)
+                    .addComponent(jButtonUsuarioExcluir))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -117,7 +176,9 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -149,15 +210,54 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(rootPane, "Ocorreu algum problema para gravar os dados.");
         }
     }//GEN-LAST:event_jButton_SalvarActionPerformed
+
+    private void jButtonUsuarioConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUsuarioConsultarActionPerformed
+        Path path = Path.of("usuario.txt");
+
+        try {
+            List<String> linhas = Files.readAllLines(path);
+            DefaultTableModel dtmTabelaCadastroUsuario = (DefaultTableModel) jTableUsuario.getModel();
+            for (String linha : linhas) {
+                String[] dados = linha.split(",");
+
+                if (dados.length >= 1) {
+                    String login = dados[0];
+                    String senha = dados[1];
+                                        
+                    Object [] dadosTabelaUsuario = {login,senha};
+                    dtmTabelaCadastroUsuario.addRow(dadosTabelaUsuario);
+                    
+                } else {
+                    System.out.println("Linha com dados incompletos: " + linha);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao ler o arquivo: " + e.getMessage());
+        }
+    }//GEN-LAST:event_jButtonUsuarioConsultarActionPerformed
+
+    private void jButtonUsuarioExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUsuarioExcluirActionPerformed
+        if (jTableUsuario.getSelectedRow() != -1){
+            DefaultTableModel dtmTabelaUsuario = (DefaultTableModel) jTableUsuario.getModel();
+            dtmTabelaUsuario.removeRow(jTableUsuario.getSelectedRow());
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Para exclusão é necessário selecinoar um registro!");
+        }
+    }//GEN-LAST:event_jButtonUsuarioExcluirActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonUsuarioConsultar;
+    private javax.swing.JButton jButtonUsuarioExcluir;
     private javax.swing.JButton jButton_Cancelar;
     private javax.swing.JButton jButton_Salvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableUsuario;
     private javax.swing.JTextField jTextField_UsuarioLogin;
     private javax.swing.JTextField jTextField_UsuarioSenha;
     // End of variables declaration//GEN-END:variables
