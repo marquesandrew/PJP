@@ -5,7 +5,7 @@
 package com.mycompany.concessionaria;
 
 import javax.swing.JOptionPane;
-import view.Login;
+import com.mycompany.concessionaria.view.Login;
 
 /**
  *

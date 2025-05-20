@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package view;
+package com.mycompany.concessionaria.view;
 
-import com.mycompany.concessionaria.modelo.Veiculo;
+import com.mycompany.concessionaria.model.Veiculo;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.file.Files;

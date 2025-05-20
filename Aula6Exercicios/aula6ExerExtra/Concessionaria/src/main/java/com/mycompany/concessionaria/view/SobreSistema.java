@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package view;
+package com.mycompany.concessionaria.view;
 
 /**
  *
@@ -40,7 +40,6 @@ public class SobreSistema extends javax.swing.JInternalFrame {
         jTextArea1.setAutoscrolls(false);
         jTextArea1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane1.setViewportView(jTextArea1);
-        jTextArea1.getAccessibleContext().setAccessibleParent(null);
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\src\\main\\resources\\imagens\\java-logo_40.png")); // NOI18N
 
