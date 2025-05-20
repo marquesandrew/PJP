@@ -26,12 +26,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Usuario
  */
-public class CadastroCliente extends javax.swing.JInternalFrame {
+public class TelaCliente extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form CadastroCliente
      */
-    public CadastroCliente() {
+    public TelaCliente() {
         initComponents();
     }
 

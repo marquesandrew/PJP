@@ -10,12 +10,12 @@ package com.mycompany.concessionaria.view;
  *
  * @author Usuario
  */
-public class Principal extends javax.swing.JFrame {
+public class TelaPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form Principal
      */
-    public Principal() {
+    public TelaPrincipal() {
         initComponents();
     }
 
@@ -168,25 +168,25 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemSairActionPerformed
 
     private void jMenuItem_CadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_CadastroClienteActionPerformed
-        CadastroCliente cadastroCliente = new CadastroCliente();
+        TelaCliente cadastroCliente = new TelaCliente();
         jDesktopPane_Principal.add(cadastroCliente);
         cadastroCliente.setVisible(true);    
     }//GEN-LAST:event_jMenuItem_CadastroClienteActionPerformed
 
     private void jMenuItemCadastroVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroVeiculoActionPerformed
-        CadastroVeiculo cadastroVeiculo = new CadastroVeiculo();
+        TelaVeiculo cadastroVeiculo = new TelaVeiculo();
         jDesktopPane_Principal.add(cadastroVeiculo);
         cadastroVeiculo.setVisible(true);
     }//GEN-LAST:event_jMenuItemCadastroVeiculoActionPerformed
 
     private void jMenuItemCadastroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroUsuarioActionPerformed
-        CadastroUsuario cadastroUsuario = new CadastroUsuario();
+        TelaUsuario cadastroUsuario = new TelaUsuario();
         jDesktopPane_Principal.add(cadastroUsuario);
         cadastroUsuario.setVisible(true);
     }//GEN-LAST:event_jMenuItemCadastroUsuarioActionPerformed
 
     private void jMenuItemSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSistemaActionPerformed
-        SobreSistema sobreSistema = new SobreSistema();
+        TelaSobre sobreSistema = new TelaSobre();
         jDesktopPane_Principal.add(sobreSistema);
         sobreSistema.setVisible(true);
     }//GEN-LAST:event_jMenuItemSistemaActionPerformed
@@ -208,20 +208,21 @@ public class Principal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);
+                new TelaPrincipal().setVisible(true);
             }
         });
     }

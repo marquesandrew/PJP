@@ -14,14 +14,14 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author CadastroUsuario
+ * @author TelaUsuario
  */
-public class CadastroUsuario extends javax.swing.JInternalFrame {
+public class TelaUsuario extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Usuario
      */
-    public CadastroUsuario() {
+    public TelaUsuario() {
         initComponents();
     }
 

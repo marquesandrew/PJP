@@ -8,12 +8,12 @@ package com.mycompany.concessionaria.view;
  *
  * @author Usuario
  */
-public class SobreSistema extends javax.swing.JInternalFrame {
+public class TelaSobre extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form SobreSistema
      */
-    public SobreSistema() {
+    public TelaSobre() {
         initComponents();
     }
 

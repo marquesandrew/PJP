@@ -8,12 +8,12 @@ package com.mycompany.concessionaria.view;
  *
  * @author Usuario
  */
-public class VenderVeiculo extends javax.swing.JInternalFrame {
+public class TelaVenda extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form VenderVeiculo
      */
-    public VenderVeiculo() {
+    public TelaVenda() {
         initComponents();
     }
 

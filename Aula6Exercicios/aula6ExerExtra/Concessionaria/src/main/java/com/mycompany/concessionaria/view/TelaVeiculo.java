@@ -24,12 +24,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Usuario
  */
-public class CadastroVeiculo extends javax.swing.JInternalFrame {
+public class TelaVeiculo extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form CadastroVeiculo
      */
-    public CadastroVeiculo() {
+    public TelaVeiculo() {
         initComponents();
     }
 

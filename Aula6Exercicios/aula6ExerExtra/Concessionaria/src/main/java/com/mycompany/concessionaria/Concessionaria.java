@@ -5,7 +5,7 @@
 package com.mycompany.concessionaria;
 
 import javax.swing.JOptionPane;
-import com.mycompany.concessionaria.view.Login;
+import com.mycompany.concessionaria.view.TelaLogin;
 
 /**
  *
@@ -14,6 +14,6 @@ import com.mycompany.concessionaria.view.Login;
 public class Concessionaria {
 
     public static void main(String[] args) {
-        new Login().setVisible(true);
+        new TelaLogin().setVisible(true);
     }
 }
