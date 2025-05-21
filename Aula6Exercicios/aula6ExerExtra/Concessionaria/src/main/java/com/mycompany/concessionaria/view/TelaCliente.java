@@ -326,7 +326,6 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         dtmTabelaCadastroCliente.addRow(dadosTabelaCliente);
         
         /* GRAVAR NO BANCO POSTGRES*/
-        ClienteController clienteController = new ClienteController();
         GenericDAO<Cliente> dao = new GenericDAO<>(Cliente.class);
         try {
             dao.insert("cliente", cliente);
