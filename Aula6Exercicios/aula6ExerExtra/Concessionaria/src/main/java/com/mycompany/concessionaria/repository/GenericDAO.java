@@ -2,12 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.concessionaria.connection;
+package com.mycompany.concessionaria.repository;
 
 /**
  *
  * @author Marcos
  */
+import com.mycompany.concessionaria.config.PostgresConnection;
 import java.lang.reflect.Field;
 import java.sql.*;
 import java.util.ArrayList;

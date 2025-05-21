@@ -4,6 +4,7 @@
  */
 package com.mycompany.concessionaria.view;
 
+import com.mycompany.concessionaria.repository.GenericDAO;
 import com.mycompany.concessionaria.model.Cliente;
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,10 +16,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.sql.SQLException;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -294,7 +298,6 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         }
         
         Cliente cliente = new Cliente(client_nome, cliente_cpf, cliente_telefone, cliente_email, cliente_nascimento, cliente_sexo);
-        
         Path path = Path.of("C:\\Users\\Usuario\\OneDrive\\Documentos\\PJP\\PJP\\Aula6Exercicios\\aula6ExerExtra\\Concessionaria\\cliente.txt");
         
         try {
@@ -321,6 +324,17 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         DefaultTableModel dtmTabelaCadastroCliente = (DefaultTableModel) jTable_Cliente.getModel();
         Object [] dadosTabelaCliente = {client_nome,cliente_cpf,cliente_telefone,cliente_email,cliente_nascimento,cliente_sexo};
         dtmTabelaCadastroCliente.addRow(dadosTabelaCliente);
+        
+        /* GRAVAR NO BANCO POSTGRES*/
+        ClienteController clienteController = new ClienteController();
+        GenericDAO<Cliente> dao = new GenericDAO<>(Cliente.class);
+        try {
+            dao.insert("cliente", cliente);
+        }catch (SQLException ex) {
+            Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Erro ao persistir dados");
+        }
+        
     }//GEN-LAST:event_jButton_SalvarActionPerformed
 
     private void jButton_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ExcluirActionPerformed

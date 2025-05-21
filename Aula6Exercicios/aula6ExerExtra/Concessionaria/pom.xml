@@ -10,4 +10,11 @@
         <maven.compiler.release>24</maven.compiler.release>
         <exec.mainClass>com.mycompany.concessionaria.Concessionaria</exec.mainClass>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.5</version> <!-- Use a versão mais recente -->
+        </dependency>
+    </dependencies>
 </project>
