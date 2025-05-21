@@ -205,7 +205,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         jTable_Cliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {},
             new String [] {
-                "Nome", "Cpf", "Telefone", "Email", "Nascimento", "Sexo"
+                "Id","Nome", "Cpf", "Telefone", "Email", "Nascimento", "Sexo"
             }
         ));
         jScrollPane1.setViewportView(jTable_Cliente);
