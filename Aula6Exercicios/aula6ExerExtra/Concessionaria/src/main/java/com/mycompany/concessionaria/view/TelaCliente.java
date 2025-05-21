@@ -337,10 +337,31 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton_SalvarActionPerformed
 
     private void jButton_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ExcluirActionPerformed
-        
-        if (jTable_Cliente.getSelectedRow() != -1){
-            DefaultTableModel dtmTabelaCadastroCliente = (DefaultTableModel) jTable_Cliente.getModel();
-            dtmTabelaCadastroCliente.removeRow(jTable_Cliente.getSelectedRow());
+        int linhaSelecionada = jTable_Cliente.getSelectedRow();
+        if (linhaSelecionada != -1){
+            int confirmacao = JOptionPane.showConfirmDialog(
+                    this, "Deseja realmente excluir este cliente?",
+                    "Confirmação",
+                    JOptionPane.YES_NO_OPTION
+            );
+            if (confirmacao == JOptionPane.YES_OPTION){
+                try {
+                    DefaultTableModel dtmTabelaCadastroCliente = (DefaultTableModel) jTable_Cliente.getModel();
+                    int id = (int) dtmTabelaCadastroCliente.getValueAt(linhaSelecionada, 2);//pega o id da coluna oculta
+
+                    GenericDAO<Cliente> dao = new GenericDAO<> (Cliente.class);
+                    dao.delete("cliente",id);
+
+                    dtmTabelaCadastroCliente.removeRow(linhaSelecionada);
+                    JOptionPane.showMessageDialog(this, "Cliente excluído com sucesso.");
+                    
+                } catch (Exception ex){
+                    JOptionPane.showMessageDialog(this, "Erro ao excluir:" + ex.getMessage(),
+                    "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+                    
+            
         }else{
             JOptionPane.showMessageDialog(rootPane, "Para exclusão é necessário selecinoar um registro!");
         }
